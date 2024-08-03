@@ -1,15 +1,15 @@
-#What is gRPC?
+### What is gRPC?🚀
 A high performance, open source universal RPC framework,
 Originally developed by Google
 
-#What is RPC (Remote Procedure Calls?)
+### What is RPC (Remote Procedure Calls?)
 - It is a protocol that allows program to:  
     a. execute Procedure of another program located in other computer
     b. without developer explicitly coding the details for the remote interactions
 - In the client code it's as if calling a server code function directly
 - Client and server codes can be written in different languages 
 
-#How gRPC Works?
+### How gRPC Works?
 
 1. Protocol Buffers (Protobuf): gRPC uses Protocol Buffers as its "Interface Definition Language(IDL)"
     to define structure of the message and services.

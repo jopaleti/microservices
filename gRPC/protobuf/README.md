@@ -1,4 +1,4 @@
-#How to define a protocol message?
+### How to define a protocol message?🚀
 ```
     Name of the message: UpperCammelCase
     Name of the field: lower_snake_case
@@ -9,7 +9,7 @@
     Data type can be user defined enums
 ```
 
-##Project Folder structure
+### Project Folder structure
 ```
     protobuf/
         pb/
@@ -17,7 +17,7 @@
             example.proto
 ```
 
-#How To Generate Go Code And GRPC Code in pb/ Folder?
+### How To Generate Go Code And GRPC Code in pb/ Folder?
 
 >Run make gen
 Manually run below command
