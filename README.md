@@ -6,11 +6,11 @@ Master the art of building, deploying, and managing scalable microservices using
 
 # 🔧 Technologies Covered:
 
-**Go**: Develop efficient and high-performance microservices.
-**Node.js**: Build scalable and asynchronous services.
-gRPC: Implement robust communication between services.
-Docker: Containerize and orchestrate microservices for consistent environments.
-Deployment: Deploy your projects online for real-world experience.
+1. **Go**: Develop efficient and high-performance microservices.
+2. **Node.js**: Build scalable and asynchronous services.
+3. **gRPC**: Implement robust communication between services.
+4. **Docker**: Containerize and orchestrate microservices for consistent environments.
+5. **Deployment**: Deploy your projects online for real-world experience.
 
 
 ### What is Microservices?
