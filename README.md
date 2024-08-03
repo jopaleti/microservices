@@ -50,10 +50,10 @@ other through well-defined APIs.
 ### Best Ways to Establish Communication between Microservices?
 1. gRPC
 2. Message Brokers
-    Description: Services communicate asynchronously through a message broker (e.g., RabbitMQ, Apache Kafka, or Amazon SQS).
-    Pros: Decouples services, supports asynchronous processing, and can handle high volumes of messages.
-    Cons: Adds complexity in terms of message management and requires handling of potential message loss or duplication.
+    **Description**: Services communicate asynchronously through a message broker (e.g., RabbitMQ, Apache Kafka, or Amazon SQS).
+    **Pros**: Decouples services, supports asynchronous processing, and can handle high volumes of messages.
+    **Cons**: Adds complexity in terms of message management and requires handling of potential message loss or duplication.
 3. Event Streaming
-    Description: Services publish and subscribe to events using a streaming platform (e.g., Apache Kafka, AWS Kinesis).
-    Pros: Real-time data processing, allows event-driven architectures, and handles high throughput.
-    Cons: Requires management of event schemas and consumer state.
+    **Description**: Services publish and subscribe to events using a streaming platform (e.g., Apache Kafka, AWS Kinesis).
+    **Pros**: Real-time data processing, allows event-driven architectures, and handles high throughput.
+    **Cons**: Requires management of event schemas and consumer state.
