@@ -33,5 +33,5 @@ func NewCPU() *pb.CPU {
 }
 
 func NewGPU() *pb.NewGPU {
-
+	brand := 
 }
