@@ -1,4 +1,4 @@
-### How to define a protocol message?🚀
+# How to define a protocol message?🚀
 ```
     Name of the message: UpperCammelCase
     Name of the field: lower_snake_case
@@ -18,8 +18,7 @@
 ```
 
 ### How To Generate Go Code And GRPC Code in pb/ Folder?
-
->Run make gen
+Run ... make gen
 Manually run below command
 ```go
     protoc --proto_path=proto --go_out=pb --go_opt=paths=source_relative \

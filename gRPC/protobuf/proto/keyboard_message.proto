@@ -7,11 +7,11 @@ package tech.pcbook;
 message Keyboard {
     enum Layout {
         UNKNOWN = 0;
-        QHERTY = 1;
-        QHERTZ = 2;
+        QWERTY = 1;
+        QWERTZ = 2;
         AZERTY = 3;
     }
-    
+
     Layout layout = 1;
     bool backlit = 2;
 }
