@@ -70,3 +70,23 @@ func randomInt(min, max int) int {
 func randomFloat64(min, max float64) float64 {
 	return min + rand.Float64() * max - min
 }
+
+func randomGPUBrand() string {
+	return randomStringFromSet("NVIDIA", "AMD")
+}
+
+func randomGPUName(brand string) string {
+	if brand == "NVIDIA" {
+		return randomStringFromSet(
+			"RTX 2023",
+			"RTX 2001",
+			"GTX 0021",
+			"GTX 7712",
+		)
+	}
+	return randomStringFromSet(
+		"RX 500",
+		"RX 600",
+		"RX 430",
+	)
+}
