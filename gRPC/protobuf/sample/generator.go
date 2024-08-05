@@ -32,3 +32,6 @@ func NewCPU() *pb.CPU {
 	return cpu
 }
 
+func NewGPU() *pb.NewGPU {
+
+}
