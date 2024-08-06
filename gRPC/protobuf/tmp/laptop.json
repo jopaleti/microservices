@@ -1,0 +1,57 @@
+{
+	"id":  "35e15bd5-b04a-4f04-a7cd-d10fdfe67f21",
+	"brand":  "Dell",
+	"name":  "Alienware",
+	"cpu":  {
+		"brand":  "MACOS",
+		"name":  "MAC core i9",
+		"number_cores":  3,
+		"number_threads":  10,
+		"min_ghz":  2.3223003501637134,
+		"max_ghz":  1.5438357073385758
+	},
+	"memory":  null,
+	"gpus":  [
+		{
+			"brand":  "Intel",
+			"name":  "core i4",
+			"number_cores":  4,
+			"number_threads":  6,
+			"min_ghz":  1.8094670733267066,
+			"max_ghz":  3.5227490556528713
+		}
+	],
+	"storage":  [
+		{
+			"driver":  "SDD",
+			"memory":  {
+				"value":  "629",
+				"unit":  "GIGABYTE"
+			}
+		},
+		{
+			"driver":  "HDD",
+			"memory":  {
+				"value":  "2",
+				"unit":  "TERABYTE"
+			}
+		}
+	],
+	"screen":  {
+		"size_inch":  15.68883,
+		"resolution":  {
+			"width":  2712,
+			"height":  1526
+		},
+		"panel":  "OLED",
+		"multitouch":  true
+	},
+	"keyboard":  {
+		"layout":  "AZERTY",
+		"backlit":  true
+	},
+	"weight_kg":  2.601276104343149,
+	"price_usd":  935.629929336043,
+	"release_year":  2021,
+	"updated_at":  "2024-08-06T14:32:11.003161Z"
+}

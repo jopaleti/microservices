@@ -14,6 +14,7 @@ func TestFileSerializer(t *testing.T) {
 	t.Parallel() // For paralle running of unit test
 
 	binaryFile := "../tmp/laptop.bin"
+	jsonFile := "../tmp/laptop.json"
 
 	// Creating a new instance of laptop
 	laptop1 := sample.NewLaptop()
@@ -24,4 +25,7 @@ func TestFileSerializer(t *testing.T) {
 	err = serializer.ReadProtoBufFromBinaryFile(binaryFile, laptop2)
 	require.NoError(t, err)
 	require.True(t, proto.Equal(laptop1, laptop2))
+
+	err = serializer.WriteProtobufToJSONFile(laptop1, jsonFile)
+	require.NoError(t, err)
 }
