@@ -90,3 +90,25 @@ func randomGPUName(brand string) string {
 		"RX 430",
 	)
 }
+
+func randomFloat32(min, max float32) float32 {
+	return min + rand.Float32()*(max-min)
+}
+
+func randomScreenPanel() pb.Screen_Panel {
+	if rand.Intn(2) == 1 {
+		return pb.Screen_IPS
+	}
+	return pb.Screen_OLED
+}
+
+func randomScreenResolution() *pb.Screen_Resolution {
+	height := randomInt(1080, 4300)
+	width := height * 16 / 9
+	
+	resolution := &pb.Screen_Resolution{
+		Width: uint32(width),
+		Height: uint32(height),
+	}
+	return resolution
+}

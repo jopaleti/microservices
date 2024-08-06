@@ -53,3 +53,55 @@ func NewGPU() *pb.GPU {
 
 	return gpu
 }
+
+func NewRAM() *pb.Memory {
+	ram := &pb.Memory {
+		Value: uint64(randomInt(4, 64)),
+		Unit: pb.Memory_GIGABYTE,
+	}
+
+	return ram
+}
+
+func NewSSD() *pb.Storage {
+	ssd := &pb.Storage {
+		Driver: pb.Storage_SDD,
+		Memory: &pb.Memory{
+			Value: uint64(randomInt(128, 1024)),
+			Unit: pb.Memory_GIGABYTE,
+		},
+	}
+	return ssd
+}
+
+func NewHDD() *pb.Storage {
+	hdd := &pb.Storage {
+		Driver: pb.Storage_HDD,
+		Memory: &pb.Memory{
+			Value: uint64(randomInt(1, 6)),
+			Unit: pb.Memory_TERABYTE,
+		},
+	}
+	return hdd
+}
+
+// New screen return a new map
+func NewScreen() *pb.Screen {
+	screen := &pb.Screen {
+		SizeInch: randomFloat32(13, 17),
+		Resolution: randomScreenResolution(),
+		Panel: randomScreenPanel(),
+		Multitouch: randomBool(),
+	}
+
+	return screen
+}
+
+// Generate a new simple laptop
+func NewLaptop() *pb.Laptop {
+	laptop := &pb.Laptop{
+
+	}
+
+	return laptop
+}
