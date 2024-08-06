@@ -1,6 +1,7 @@
 package sample
 
 import (
+	"github.com/golang/protobuf/ptypes"
 	"github.com/jopaleti/pcbook/pb"
 )
 
@@ -99,8 +100,24 @@ func NewScreen() *pb.Screen {
 
 // Generate a new simple laptop
 func NewLaptop() *pb.Laptop {
-	laptop := &pb.Laptop{
+	brand := randomLaptopBrand()
+	name := randomLaptopName(brand)
 
+	laptop := &pb.Laptop{
+		Id: randomID(),
+		Brand: brand,
+		Name: name,
+		Cpu: NewCPU(),
+		Gpus: []*pb.CPU{NewCPU()},
+		Storage: []*pb.Storage{NewSSD(), NewHDD()},
+		Screen: NewScreen(),
+		Keyboard: NewKeyBoard(),
+		Weight: &pb.Laptop_WeightKg{
+			WeightKg: randomFloat64(1.0, 3.0),
+		},
+		PriceUsd: randomFloat64(1500, 3000),
+		ReleaseYear: uint32(randomInt(2018, 2024)),
+		UpdatedAt: ptypes.TimestampNow(),
 	}
 
 	return laptop

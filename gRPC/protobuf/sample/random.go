@@ -3,6 +3,7 @@ package sample
 import (
 	"math/rand"
 
+	"github.com/google/uuid"
 	"github.com/jopaleti/pcbook/pb"
 )
 
@@ -105,10 +106,29 @@ func randomScreenPanel() pb.Screen_Panel {
 func randomScreenResolution() *pb.Screen_Resolution {
 	height := randomInt(1080, 4300)
 	width := height * 16 / 9
-	
+
 	resolution := &pb.Screen_Resolution{
 		Width: uint32(width),
 		Height: uint32(height),
 	}
 	return resolution
+}
+
+func randomID() string {
+	return uuid.New().String()
+}
+
+func randomLaptopBrand() string {
+	return randomStringFromSet("Apple", "Dell", "Lenovo")
+}
+
+func randomLaptopName(brand string) string {
+	switch brand {
+	case "Apple":
+		return randomStringFromSet("MacBook Air", "MacBook Pro")
+	case "Dell":
+		return randomStringFromSet("Latitude", "Voster", "XPS", "Alienware")
+	default:
+		return randomStringFromSet("Thinkpad K1", "Thinkpad P1", "Thinkpad P53")
+	}
 }
