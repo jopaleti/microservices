@@ -2,10 +2,16 @@ package sample
 
 import (
 	"math/rand"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/jopaleti/pcbook/pb"
 )
+
+// This function will be called once before execution of any other function
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 func randomKeyboardLayout() pb.Keyboard_Layout {
 	switch rand.Intn(3) {

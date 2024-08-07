@@ -1,47 +1,47 @@
 {
-	"id":  "35e15bd5-b04a-4f04-a7cd-d10fdfe67f21",
+	"id":  "f61a6b09-5cd0-487c-89f2-f49afcb3f73a",
 	"brand":  "Dell",
-	"name":  "Alienware",
+	"name":  "XPS",
 	"cpu":  {
 		"brand":  "MACOS",
-		"name":  "MAC core i9",
-		"number_cores":  3,
-		"number_threads":  10,
-		"min_ghz":  2.3223003501637134,
-		"max_ghz":  1.5438357073385758
+		"name":  "MAC M3 Pro",
+		"number_cores":  5,
+		"number_threads":  9,
+		"min_ghz":  1.8195777529934212,
+		"max_ghz":  1.6331788371610552
 	},
 	"memory":  null,
 	"gpus":  [
 		{
-			"brand":  "Intel",
-			"name":  "core i4",
-			"number_cores":  4,
-			"number_threads":  6,
-			"min_ghz":  1.8094670733267066,
-			"max_ghz":  3.5227490556528713
+			"brand":  "MACOS",
+			"name":  "MAC M2",
+			"number_cores":  2,
+			"number_threads":  21,
+			"min_ghz":  0.734261134206081,
+			"max_ghz":  2.2028695810803094
 		}
 	],
 	"storage":  [
 		{
 			"driver":  "SDD",
 			"memory":  {
-				"value":  "629",
+				"value":  "467",
 				"unit":  "GIGABYTE"
 			}
 		},
 		{
 			"driver":  "HDD",
 			"memory":  {
-				"value":  "2",
+				"value":  "4",
 				"unit":  "TERABYTE"
 			}
 		}
 	],
 	"screen":  {
-		"size_inch":  15.68883,
+		"size_inch":  13.622712,
 		"resolution":  {
-			"width":  2712,
-			"height":  1526
+			"width":  2908,
+			"height":  1636
 		},
 		"panel":  "OLED",
 		"multitouch":  true
@@ -50,8 +50,8 @@
 		"layout":  "AZERTY",
 		"backlit":  true
 	},
-	"weight_kg":  2.601276104343149,
-	"price_usd":  935.629929336043,
-	"release_year":  2021,
-	"updated_at":  "2024-08-06T14:32:11.003161Z"
+	"weight_kg":  0.8180235335703152,
+	"price_usd":  1445.4606296639176,
+	"release_year":  2023,
+	"updated_at":  "2024-08-06T22:44:28.906258Z"
 }
