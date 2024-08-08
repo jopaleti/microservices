@@ -16,7 +16,7 @@ message Laptop {
     string brand = 2;
     string name = 3;
     CPU cpu = 4;
-    Memory memory = 5;
+    Memory ram = 5;
     // repeated tells protoc the field_name is a list of entities
     repeated CPU gpus = 6;
     repeated Storage storage = 7;
