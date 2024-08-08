@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"log"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/jopaleti/pcbook/pb"
@@ -42,6 +43,33 @@ func (server *LaptopServer) CreateLaptop(
 			return nil, status.Errorf(codes.Internal, "cannot generate a new laptop ID: %v", err)
 		}
 		laptop.Id = id.String()
+	}
+	// Performing some heavy processing to confirm our timeOut setting
+	time.Sleep(5*time.Second)
+	/*
+		Don't save the laptop data to the In-memory storage if the
+		context time is canceled either with context timeout setting using
+		context.WithTimeout or user canceled the request before the appointed time
+		Example of context timeout canceled::
+			Client:> context.WithTimeout(context.Background(), 4*time.Second)
+			Server:> time.Sleep(5*time.Second)
+			Explanation: Server sleeps for 5 seconds and client request should
+			be terminated after 4 minutes, that means before server wake up the 
+			client request would have terminated and when such happen, you are to 
+			determine how the server should respond to such event either render it 
+			useless or still make the data persistent.
+	*/
+	if ctx.Err() == context.Canceled {
+		log.Print("request is canceled")
+		return nil, status.Error(codes.Canceled, "request is canceled")
+	}
+	/*
+		Don't save the laptop data to the In-memory storage if the
+		context time is exceeded
+	*/
+	if ctx.Err() == context.DeadlineExceeded {
+		log.Println("deadline is exceeded")
+		return nil, status.Error(codes.DeadlineExceeded, "deadline is exceeded")
 	}
 	// Save the laptop to in memory storage
 		err := server.laptopStore.Save(laptop)
