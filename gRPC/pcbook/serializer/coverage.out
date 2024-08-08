@@ -1,0 +1,6 @@
+mode: set
+github.com/jopaleti/pcbook/serializer/file.go:10.78,13.16 2 1
+github.com/jopaleti/pcbook/serializer/file.go:13.16,15.3 1 0
+github.com/jopaleti/pcbook/serializer/file.go:17.2,18.16 2 1
+github.com/jopaleti/pcbook/serializer/file.go:18.16,20.3 1 0
+github.com/jopaleti/pcbook/serializer/file.go:21.2,21.12 1 1

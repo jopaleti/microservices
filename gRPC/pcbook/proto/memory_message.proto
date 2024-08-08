@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+package tech.pcbook;
+
+message Memory {
+  /*
+  Because this Unit needs to exist inside of the context of memory,
+  we should define it as a nested type inside the memory message
+  */
+  enum Unit {
+    UNKNOWN = 0;
+    BIT = 1;
+    BYTE = 2;
+    KILOBYTE = 3;
+    MEGABYTE = 4;
+    GIGABYTE = 5;
+    TERABYTE = 6;
+  }
+
+  uint64 value = 1;
+  Unit unit = 2;
+}
