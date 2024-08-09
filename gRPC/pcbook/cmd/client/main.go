@@ -45,11 +45,11 @@ func CreateLaptop(laptopClient pb.LaptopServiceClient) {
 func SearchLaptop(laptopClient pb.LaptopServiceClient, filter *pb.Filter) {
 	log.Print("search filter: ", filter)
 
-	// ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	// defer cancel()
+	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+	defer cancel()
 
 	req := &pb.SearchLaptopRequest{Filter: filter}
-	stream, err := laptopClient.SearchLaptop(context.Background(), req)
+	stream, err := laptopClient.SearchLaptop(ctx, req)
 	if err != nil {
 		log.Fatal("cannot search laptop: ", err)
 
@@ -57,7 +57,7 @@ func SearchLaptop(laptopClient pb.LaptopServiceClient, filter *pb.Filter) {
 
 	for {
 		res, err := stream.Recv()
-		if err != io.EOF {
+		if err == io.EOF {
 			return
 		}
 
@@ -66,13 +66,13 @@ func SearchLaptop(laptopClient pb.LaptopServiceClient, filter *pb.Filter) {
 		}
 		fmt.Print("res")
 		laptop := res.GetLaptop()
-		log.Print("- found: ", laptop.GetId())
-		log.Print("- brand: ", laptop.GetBrand())
-		log.Print("- name: ", laptop.GetName())
-		log.Print("- cpu cores: ", laptop.GetCpu().GetNumberCores())
-		log.Print("- cpu min ghz: ", laptop.GetCpu().GetMinGhz())
-		log.Print("- ram: ", laptop.GetRam().GetValue(), laptop.GetRam().GetUnit())
-		log.Print("- price: ", laptop.GetPriceUsd(), "usd")
+		log.Println("- found: ", laptop.GetId())
+		log.Println("- brand: ", laptop.GetBrand())
+		log.Println("- name: ", laptop.GetName())
+		log.Println("- cpu cores: ", laptop.GetCpu().GetNumberCores())
+		log.Println("- cpu min ghz: ", laptop.GetCpu().GetMinGhz())
+		log.Println("- ram: ", laptop.GetRam().GetValue(), laptop.GetRam().GetUnit())
+		log.Println("- price: ", laptop.GetPriceUsd(), "usd")
 	}
 }
 
@@ -94,10 +94,10 @@ func main() {
 	}
 
 	filter := &pb.Filter {
-		MaxPriceUsd: 3000,
+		MaxPriceUsd: 2000,
 		MinCpuCores: 4,
-		MinCpuGhz: 2.0,
-		MinRam: &pb.Memory{Value: 0, Unit: pb.Memory_GIGABYTE},
+		MinCpuGhz: 1.5,
+		MinRam: &pb.Memory{Value: 20, Unit: pb.Memory_GIGABYTE},
 	}
 
 	SearchLaptop(laptopClient, filter)

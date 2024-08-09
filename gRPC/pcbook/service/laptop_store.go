@@ -1,9 +1,12 @@
 package service
 
 import (
+	"context"
 	"errors"
 	"fmt"
+	"log"
 	"sync"
+	"time"
 
 	"github.com/jinzhu/copier"
 	"github.com/jopaleti/pcbook/pb"
@@ -17,7 +20,7 @@ type LaptopStore interface {
 	// Save laptop to the store
 	Save (laptop *pb.Laptop) error 
 	Find (id string) (*pb.Laptop, error)
-	Search (filter *pb.Filter, found func(laptop *pb.Laptop) error)  error
+	Search (ctx context.Context, filter *pb.Filter, found func(laptop *pb.Laptop) error)  error
 }
 // type Store interface {
 // 	Find (id string) (*pb.Laptop, error)
@@ -72,6 +75,7 @@ func (store *InMemoryLaptopStore) Find (id string) (*pb.Laptop, error) {
 }
 
 func (store *InMemoryLaptopStore) Search (
+	ctx context.Context,
 	filter *pb.Filter,
 	found func(laptop *pb.Laptop) error,
 	) error {
@@ -79,6 +83,14 @@ func (store *InMemoryLaptopStore) Search (
 		defer store.mutex.RUnlock()
 
 		for _, laptop := range store.data {
+			time.Sleep(time.Second)
+			log.Print("Checking laptop id: ", laptop.GetId())
+
+			if ctx.Err() == context.Canceled || ctx.Err() == context.DeadlineExceeded {
+				log.Print("context is canceled")
+				return errors.New("context is canceled")
+			}
+
 			if isQualified(filter, laptop) {
 				// Deep copy
 				other, err := deepCopy(laptop)
