@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"sync"
-	"time"
 
 	"github.com/jinzhu/copier"
 	"github.com/jopaleti/pcbook/pb"
@@ -83,7 +82,7 @@ func (store *InMemoryLaptopStore) Search (
 		defer store.mutex.RUnlock()
 
 		for _, laptop := range store.data {
-			time.Sleep(time.Second)
+			// time.Sleep(time.Second)
 			log.Print("Checking laptop id: ", laptop.GetId())
 
 			if ctx.Err() == context.Canceled || ctx.Err() == context.DeadlineExceeded {

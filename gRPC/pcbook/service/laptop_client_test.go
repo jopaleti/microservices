@@ -136,5 +136,9 @@ func TestClientSearchLaptop(t *testing.T) {
 
 		require.NoError(t, err)
 		require.Contains(t, expectedIDs, res.GetLaptop().GetId())
+
+		found++
 	}
+
+	require.Equal(t, len(expectedIDs), found)
 }
